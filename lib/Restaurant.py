@@ -1,7 +1,9 @@
 class Restaurant:
+    restaurants=[]
     def __init__(self,name):
         self.name=name
         self.reviews=[]
+        Restaurant.restaurants.append(self)
     
     def restaurant_name(self):
         return self.name
@@ -11,8 +13,10 @@ class Restaurant:
             return 0
         total_rating= sum(review.rating for review in self.reviews)
         return total_rating/len(self.reviews)
+    
     def restaurant_reviews(self):
         return self.reviews
+    
     def customers(self):
         return list(set(review.customer for review in self.reviews))
     
